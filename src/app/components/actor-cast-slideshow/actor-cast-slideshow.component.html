@@ -1,0 +1,16 @@
+<div class="swiper-container mb-5">
+  <div class="swiper-wrapper">
+    <div *ngFor="let role of cast" class="swiper-slide text-white text-center">
+      <img
+        [src]="role.poster_path | poster"
+        [alt]="role.character"
+        class="img-thumbnail"
+        (click)="onMovieClick(role.id)"
+      />
+
+      {{ role.title }}
+      <br />
+      <small class="text-muted">({{ role.character }})</small>
+    </div>
+  </div>
+</div>

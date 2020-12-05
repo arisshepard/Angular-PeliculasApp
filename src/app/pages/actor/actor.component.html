@@ -1,0 +1,70 @@
+<div
+  class="row animate__animated animate__fadeIn animate__faster"
+  *ngIf="details"
+>
+  <div class="col-md-6">
+    <!--Imagen-->
+    <img
+      [src]="details.profile_path | poster"
+      [alt]="details.name"
+      class="img-thumbnail"
+    />
+  </div>
+  <div class="col-md-6">
+    <!-- detalle -->
+    <h3>{{ details.name }}</h3>
+
+    <!-- <div class="row">
+      <div class="col">
+        <star-rating
+          [value]="details.popularity"
+          checkedcolor="yellow"
+          uncheckedcolor="grey"
+          size="15px"
+          readonly="false"
+          totalstars="10"
+        ></star-rating>
+      </div>
+
+      <div class="col text-white">
+        {{ details.popularity | number: "1.1-2" }}
+      </div>
+    </div> -->
+    <div class="row mt-3">
+      <div class="col text-white text-justify">
+        {{ details.biography }}
+      </div>
+    </div>
+
+    <div class="row row mt-3">
+      <div class="col text-muted text-justify">
+        <small>Lugar de nacimiento: {{ details.place_of_birth }}</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-muted text-justify">
+        <small
+          >Fecha de nacimiento:
+          {{ details.birthday | date: "dd/MM/yyyy" }}</small
+        >
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col">
+        <button type="button" class="btn btn-outline-info" (click)="onBack()">
+          Volver
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="mt-5" *ngIf="cast.length !== 0">Otras apariciones</h3>
+
+<div class="row mt-5" *ngIf="cast.length !== 0">
+  <div class="col">
+    <app-actor-cast-slideshow [cast]="cast"></app-actor-cast-slideshow>
+  </div>
+</div>
